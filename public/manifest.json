@@ -1,0 +1,32 @@
+{
+    "theme_color": "#0da3e8",
+    "background_color": "#171717",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "VocabulApp",
+    "short_name": "VApp",
+    "description": "Questo sito \u00e8 stato creato (oltre che per test) per poter usufruire di un vocabolario online, dove ognuno pu\u00f2 pubblicare il significato di una parola (o di una frase), o anche di una traduzione.",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

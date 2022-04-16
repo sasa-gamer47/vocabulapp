@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* global css */
+
+* {
+    font-family: monospace;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 750;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 550;
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+h5 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* with the "a" tag we mean even the "Link" tag, by NextJs */
+
+.anchor {
+    color:hsl(202, 89%, 37%);
+    text-decoration: underline;
+    transition: all .3s;
+}
+
+.anchor:hover {
+    color:hsl(202, 89%, 17%);
+    cursor: pointer;
+}
+
+/* specific css */
+
+.navbar-icon {
+    transform: scale(.75);
+}
+
+.navbar-icon-mobile {
+    transform: scale(.7);
+}
+
+.navbar-container {
+    grid-template-columns: 1fr 3fr;
+}
+
+.navbar-container-mobile {
+    grid-template-columns: 3fr 1fr;
+}
+
+.burger span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 5px;
+    background: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.burger::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 300%);
+    width: 50%;
+    height: 5px;
+    background: #fff;
+    border-radius: 2px;
+    transition: .5s;
+}
+
+.burger::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -400%);
+    width: 50%;
+    height: 5px;
+    background: #fff;
+    border-radius: 2px;
+    transition: .5s;
+}
+
+.burger.toggled::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.burger.toggled::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.burger.toggled span {
+    background: transparent;
+}
+
+.dark {
+    background: hsl(0, 0%, 9%);
+}
