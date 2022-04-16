@@ -2,6 +2,13 @@
 
 const withPWA = require('next-pwa');
 
+const securityHeaders = [
+  {
+    key: 'Referrer-Policy',
+    value: 'origin-when-cross-origin',
+  },
+]
+
 module.exports = withPWA({
   reactStrictMode: false,
   pwa: {
@@ -23,5 +30,14 @@ module.exports = withPWA({
     }
 
     return config
+  },
+  async headers() {
+    return [
+      {
+        // Apply these headers to all routes in your application.
+        source: '/:path*',
+        headers: securityHeaders,
+      },
+    ]
   },
 })
