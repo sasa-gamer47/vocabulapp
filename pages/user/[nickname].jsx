@@ -181,7 +181,7 @@ const UserInfo = ({ data, codes }) => {
                     : ''
                 } border-2 border-gray-500 sm:p-5 p-2 shadow-lg transition duration-300 hover:bg-gray-900 text-sm sm:text-xl`}
               >
-                Parole create
+                Vocaboli creati
               </button>
               <button
                 onClick={() => setSelectedButton(buttonOptions[2])}
