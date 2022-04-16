@@ -1,19 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react'
+import dynamic from "next/dynamic"
 import { useRouter } from 'next/router'
-import { AiOutlineLoading3Quarters, AiOutlineEdit, AiOutlineSetting, AiOutlineRadiusSetting } from 'react-icons/ai'
+import { AiOutlineLoading3Quarters, AiOutlineEdit, AiOutlineSetting, AiFillCopy } from 'react-icons/ai'
 import { getUserByNickname, getWordBySlug, getFavoriteById, updateUserInfo } from '../../services'
 import { useCookies } from 'react-cookie'
 import { parseCookies, randomNumberBetween } from '../../helpers/'
-import { Navbar, ModalConfirm, SearchedWordsContainer, Word } from '../../components'
-import emailjs from 'emailjs-com'
+import { Navbar, ModalConfirm, SearchedWordsContainer, Word, CopyClipboard } from '../../components'
 const UserInfo = ({ data, codes }) => {
 
   codes = codes && JSON.parse(codes)
+
+  const CC = dynamic(() => import("../../components/CopyClipboard").then(mod => mod.CopyClipboard), { ssr: false })
 
   const maxCodes = 8
   const [cookie, setCookie] = useCookies(['user'])
   const [isEditingProfile, setIsEditingProfile] = useState(false)
   const [showBackupCodes, setShowBackupCodes] = useState(false)
+  const [textToCopy, setTextToCopy] = useState('')
     const [words, setWords] = useState([])
     const [user, setUser] = useState(null)
     const [userWords, setUserWords] = useState([])
@@ -305,7 +308,23 @@ const UserInfo = ({ data, codes }) => {
                           {
                             starterBackupCodes.map((code) => (
                               <>
-                                <div className='p-1 sm:p-2 bg-white rounded-lg flex font-semibold text-lg sm:text-xl uppercase items-center justify-center'>{code}</div>
+                                <div className='p-1 relative sm:p-2 bg-white rounded-lg backup-code flex font-semibold text-lg sm:text-xl uppercase items-center justify-center dark:bg-slate-900 dark:text-white'>{code}
+                                  <div onClick={(e) => {
+                                    let parent = e.target.parentElement
+                                    if (parent.classList.contains('backup-code')) {
+                                      console.log(parent.childNodes[0])
+                                      console.log('backup.code')
+                                    } else {
+                                      parent = parent.parentElement
+                                      console.log(parent.childNodes[0])
+
+                                    
+
+                                    }
+                                  }} className='absolute right-2 cursor-pointer cursor-pointer transition duration-300 hover:scale-125'>
+                                    <CC content={textToCopy} />
+                                  </div>
+                                </div>
                               </>
                               ))
 
@@ -314,7 +333,28 @@ const UserInfo = ({ data, codes }) => {
 
                       )}
                       {codes && codes.map((code) => (
-                        <div className='p-1 sm:p-2 bg-white rounded-lg flex font-semibold text-lg sm:text-xl uppercase items-center justify-center'>{code}</div>
+                        <div className='p-1 relative sm:p-2 bg-white rounded-lg backup-code flex font-semibold text-lg sm:text-xl uppercase items-center justify-center dark:bg-slate-900 dark:text-white'>{code}
+                          <div onClick={(e) => {
+                            let parent = e.target.parentElement
+                            // console.log(parent)
+                            if (parent.classList.contains('backup-code')) {
+                              console.log('backup.code')
+                            } else {
+                              parent = parent.parentElement.parentElement
+                              // console.log(parent.childNodes[0])
+                              console.log(parent.childNodes[0].innerText)
+                              setTextToCopy(parent.childNodes[0].innerText)
+
+                              console.log(textToCopy)
+
+                              
+                              
+                            }
+                          }} className='absolute right-2 cursor-pointer cursor-pointer transition duration-300 hover:scale-125'>
+                            <CopyClipboard />
+                            <CC content={textToCopy} />
+                          </div>
+                        </div>
                       ))}
                     </div>
                     <button 
