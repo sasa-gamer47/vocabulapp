@@ -120,7 +120,7 @@ const register = () => {
                     <input ref={pin} type={showPassword ? "text" : "password"} placeholder="Crea pin" className='p-3 w-full py-2 text-lg rounded-lg' />
                     <button onClick={() => setShowInfo(true)} className='text-2xl text-white transition duration-300 hover:scale-125 ml-5'><AiFillInfoCircle /></button>
                 </div>
-                <label htmlFor="showPassword" className='flex items-center text-lg cursor-pointer' ><input for='showPassword' type="checkbox" className='mr-3' onInput={() => setShowPassword(!showPassword)} />mostra password</label>
+                <label htmlFor="showPassword" className='flex items-center text-lg cursor-pointer' ><input htmlFor='showPassword' type="checkbox" className='mr-3' onInput={() => setShowPassword(!showPassword)} />mostra password</label>
                 <button className='mt-3 p-3 py-2 rounded-lg text-lg bg-sky-400'
                     onClick={() => {
                         if (password.current.value === repeatPassword.current.value) {
