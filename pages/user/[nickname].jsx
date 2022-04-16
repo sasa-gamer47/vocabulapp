@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
-import { AiOutlineLoading3Quarters, AiOutlineEdit, AiOutlineSetting, AiOutlineRadiusSetting } from 'react-icons/ai'
+import { AiOutlineLoading3Quarters, AiOutlineEdit, AiOutlineSetting } from 'react-icons/ai'
 import { getUserByNickname, getWordBySlug, getFavoriteById, updateUserInfo } from '../../services'
 import { useCookies } from 'react-cookie'
 import { parseCookies, randomNumberBetween } from '../../helpers/'
 import { Navbar, ModalConfirm, SearchedWordsContainer, Word } from '../../components'
-import emailjs from 'emailjs-com'
+// import emailjs from 'emailjs-com'
 const UserInfo = ({ data, codes }) => {
 
   codes = codes && JSON.parse(codes)

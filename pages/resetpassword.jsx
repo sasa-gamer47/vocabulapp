@@ -1,4 +1,4 @@
-import emailjs from 'emailjs-com'
+// import emailjs from 'emailjs-com'
 import { parseCookies, randomNumberBetween } from '../helpers'
 import React, { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
