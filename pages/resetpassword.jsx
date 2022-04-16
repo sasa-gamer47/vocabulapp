@@ -115,7 +115,7 @@ const resetpassword = ({ codes }) => {
                 <input ref={password} type={showPassword ? "text" : "password"} placeholder="Crea password" className='p-3 w-full py-2 text-lg rounded-lg' />
                 <input ref={repeatPassword} type={showPassword ? "text" : "password"} placeholder="Conferma password" className='p-3 w-full py-2 text-lg rounded-lg' />
                 {!isPasswordConfirmed && <p className='text-lg text-red-500'>Le password non sono uguali</p>}
-                <label htmlFor="showPassword" className='flex items-center text-lg cursor-pointer' ><input for='showPassword' type="checkbox" className='mr-3' onInput={() => setShowPassword(!showPassword)} />mostra password</label>
+                <label htmlFor="showPassword" className='flex items-center text-lg cursor-pointer' ><input htmlFor='showPassword' type="checkbox" className='mr-3' onInput={() => setShowPassword(!showPassword)} />mostra password</label>
               </>
             )}
             <input type="submit" className='cursor-pointer mt-3 p-3 py-2 rounded-lg text-lg bg-sky-400' value="Reimposta password" />
@@ -166,7 +166,7 @@ const resetpassword = ({ codes }) => {
                 <input ref={password} type={showPassword ? "text" : "password"} placeholder="Crea password" className='p-3 w-full py-2 text-lg rounded-lg' />
                 <input ref={repeatPassword} type={showPassword ? "text" : "password"} placeholder="Conferma password" className='p-3 w-full py-2 text-lg rounded-lg' />
                 {!isPasswordConfirmed && <p className='text-lg text-red-500'>Le password non sono uguali</p>}
-                <label htmlFor="showPassword" className='flex items-center text-lg cursor-pointer' ><input for='showPassword' type="checkbox" className='mr-3' onInput={() => setShowPassword(!showPassword)} />mostra password</label>
+                <label htmlFor="showPassword" className='flex items-center text-lg cursor-pointer' ><input htmlFor='showPassword' type="checkbox" className='mr-3' onInput={() => setShowPassword(!showPassword)} />mostra password</label>
               </>
             )}
             <input type="submit" className='cursor-pointer mt-3 p-3 py-2 rounded-lg text-lg bg-sky-400' value="Reimposta password" />
