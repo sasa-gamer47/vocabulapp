@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { parseCookies } from "../../helpers"
+import { useCookies } from 'react-cookie'
 import { useRouter } from 'next/router'
 import { Word, Navbar, ModalConfirm, SearchedWordsContainer, WordForm, TranslationWordForm, SideBar } from '../../components'
 import { getFavoriteById, getWordBySlug } from '../../services'
@@ -9,6 +10,7 @@ const favorites = ({ data }) => {
     const [user, setUser] = useState(null)
     const [showModalConfirm, setShowModalConfirm] = useState(false)
     const [showSearchedWordsContainer, setShowSearchedWordsContainer] = useState(false)
+    const [cookie, setCookie] = useCookies(['user'])
     const [searchedWords, setSearchedWords] = useState([])
     const [showCreateNew, setShowCreateNew] = useState(false)
     const [showWordForm, setShowWordForm] = useState(false)
@@ -20,6 +22,8 @@ const favorites = ({ data }) => {
     
     
     useEffect(() => {
+        console.log(cookie);
+        console.clear()
 
         if (!data) {
             setUser(router.query)
@@ -106,7 +110,7 @@ const favorites = ({ data }) => {
             )}
             {favoritesUserNickname && (
                 <div className='fixed top-20 w-9/12 right-0 overflow-y-auto container gap-5 grid grid-cols-1 sm:mr-0 mr-10 sm:grid-cols-3'>
-                    {favorites.map((word) => <Word word={word} user={user} />)}
+                    {favorites.map((word) => <Word key={Math.floor(Math.random() * 10000000)} word={word} user={user} />)}
                 </div>
             )}
             {showWordForm && <WordForm user={user} />}

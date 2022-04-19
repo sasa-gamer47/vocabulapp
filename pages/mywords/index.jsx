@@ -9,7 +9,7 @@ const mywords = ({ data }) => {
     const [showModalConfirm, setShowModalConfirm] = useState(false)
     const [showSearchedWordsContainer, setShowSearchedWordsContainer] = useState(false)
     const [searchedWords, setSearchedWords] = useState([])
-    const [collapsed, setCollapsed] = useState(false)
+    // const [collapsed, setCollapsed] = useState(false)
     const [showCreateNew, setShowCreateNew] = useState(false)
     const [showWordForm, setShowWordForm] = useState(false)
     const [showTranslationWordForm, setShowTranslationWordForm] = useState(false)

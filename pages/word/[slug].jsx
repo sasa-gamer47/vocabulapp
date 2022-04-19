@@ -33,6 +33,8 @@ const WordDetails = ({ data }) => {
             })
         } else {
             setUser(JSON.parse(data))
+            console.log(cookie);
+            console.clear()
         }
         
         return () => {}

@@ -20,6 +20,10 @@ const Navbar = ({ user }) => {
 
     
     useEffect(() => { 
+
+        console.log(searchedWords);
+        console.clear()
+
         if (typeof window !== 'undefined') {
             setScreenWidth(window.innerWidth)
             window.addEventListener('resize', () => { 

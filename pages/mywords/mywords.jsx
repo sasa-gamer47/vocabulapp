@@ -92,7 +92,7 @@ const mywords = ({ data }) => {
             )}
             {userWords.length > 0 && (
                 <div className='fixed mr-10 top-20 w-9/12 right-0 h-full overflow-y-auto container gap-5 grid sm:grid-cols-3 grid-cols-1'>
-                    {userWords.map((word) => <Word word={word} user={user} />)}
+                    {userWords.map((word) => <Word key={Math.floor(Math.random() * 10000000)} word={word} user={user} />)}
                 </div>
             )}
             {showWordForm && <WordForm user={user} />}

@@ -1,9 +1,9 @@
 // import emailjs from 'emailjs-com'
-import { parseCookies, randomNumberBetween } from '../helpers'
+import { parseCookies } from '../helpers'
 import React, { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { getAllUserInfos, updatePassword } from '../services'
-import { useCookies } from 'react-cookie'
+// import { useCookies } from 'react-cookie'
 
 //once you've used a code, they will be 7 and so on, (till you generate new ones)
 // import { STMPClient } from 'emailjs'
@@ -27,28 +27,28 @@ const resetpassword = ({ codes }) => {
   const methods = ['pin', 'code']
   const [chosenResetMethod, setChosenResetMethod] = useState(methods[0])
   const router = useRouter()
-  const { pathname, query } = router
+  const { query } = router
   const [error, setError] = useState(false)
 
 
-  async function sendEmail(e) {
-    e.preventDefault()
+  // async function sendEmail(e) {
+  //   e.preventDefault()
 
 
-    const formData = {}
+  //   const formData = {}
 
 
-    Array.from(e.currentTarget.elements).forEach((field) => {
-      if (!field.name) return
-      formData[field.name] = field.value
-    })
+  //   Array.from(e.currentTarget.elements).forEach((field) => {
+  //     if (!field.name) return
+  //     formData[field.name] = field.value
+  //   })
 
-    console.log(formData);
-    await fetch('/api/sendEmail', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-    })
-  }
+  //   console.log(formData);
+  //   await fetch('/api/sendEmail', {
+  //     method: 'POST',
+  //     body: JSON.stringify(formData),
+  //   })
+  // }
 
   useEffect(() => {   // check if the reset token has expired
     if (query.token) {

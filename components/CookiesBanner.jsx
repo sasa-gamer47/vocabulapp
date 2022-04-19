@@ -9,7 +9,7 @@ const CookiesBanner = ({ show }) => {
     const [showBanner, setShowBanner] = useState(true)
 
     useEffect(() => {
-        
+        console.log(useCookies);
     }, [])
 
 

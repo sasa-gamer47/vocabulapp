@@ -12,6 +12,9 @@ const login = () => {
     const email = useRef(null)
     const password = useRef(null)
 
+    console.log(cookie);
+    console.clear()
+
     const handleSignIn = async (user) => {
         try {
             const data = user

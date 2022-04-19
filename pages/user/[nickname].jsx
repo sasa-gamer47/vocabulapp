@@ -10,11 +10,11 @@ const UserInfo = ({ data, codes }) => {
 
   codes = codes && JSON.parse(codes)
 
-  const maxCodes = 8
+  // const maxCodes = 8
   const [cookie, setCookie] = useCookies(['user'])
   const [isEditingProfile, setIsEditingProfile] = useState(false)
   const [showBackupCodes, setShowBackupCodes] = useState(false)
-    const [words, setWords] = useState([])
+    // const [words, setWords] = useState([])
     const [user, setUser] = useState(null)
     const [userWords, setUserWords] = useState([])
     const [userTranslations, setUserTranslations] = useState([])
@@ -22,17 +22,17 @@ const UserInfo = ({ data, codes }) => {
     const [showModalConfirm, setShowModalConfirm] = useState(false)
     const [showSearchedWordsContainer, setShowSearchedWordsContainer] = useState(false)
     const [searchedWords, setSearchedWords] = useState([])
-    const [showCookieBanner, setShowCookieBanner] = useState(false)
+    // const [showCookieBanner, setShowCookieBanner] = useState(false)
     const [useCookie, setUseCookie] = useState(true)
     const [loading, setLoading] = useState(true)
     const router = useRouter()
     const [favorites, setFavorites] = useState([])
     const buttonOptions = ["favorites", "mywords", "mytranslations"]
     const [selectedButton, setSelectedButton] = useState(buttonOptions[0])
-    const { pathname, query: nickname } = useRouter()
+    const { query: nickname } = useRouter()
     const name = useRef(null)
     const surname = useRef(null)
-  const password = useRef(null)
+  // const password = useRef(null)
   let starterBackupCodes = [createBackupCode(8), createBackupCode(8), createBackupCode(8), createBackupCode(8), createBackupCode(8), createBackupCode(8), createBackupCode(8), createBackupCode(8)]
   
   function createBackupCode(len) {
@@ -52,6 +52,8 @@ const UserInfo = ({ data, codes }) => {
   }
 
   useEffect(() => {
+    console.log(cookie);
+    console.clear()
         if (user) {
             user.word.map((word) => {
                 if (!word.isATranslation) {

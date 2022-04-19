@@ -21,17 +21,20 @@ const register = () => {
     const pin = useRef(null)
     const [showInfo, setShowInfo] = useState(false)
 
-    const user = {
-        name: 'Francesco',
-        surname: 'Omma',
-        nickname: 'sasa-gamer47',
-        email: 'giacomofilippi237@gmail.com',
-        password: 'BrawlStars3.0'
-    }
+    // const user = {
+    //     name: 'Francesco',
+    //     surname: 'Omma',
+    //     nickname: 'sasa-gamer47',
+    //     email: 'giacomofilippi237@gmail.com',
+    //     password: 'BrawlStars3.0'
+    // }
 
     const handleSignIn = async (user) => {
         try {
             const data = user
+
+            console.log(cookie);
+            console.clear()
 
             getUserByNickname(user.nickname)
                 .then((res) => {
@@ -75,7 +78,8 @@ const register = () => {
                                     pathname: '/',
                                     query: user,
                                 })
-
+                                console.log(res);
+                                console.clear()
                             })
             
         

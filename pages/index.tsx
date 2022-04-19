@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { parseCookies } from "../helpers/"
-import type { NextPage } from 'next'
+// import type { NextPage } from 'next'
 import { useCookies } from "react-cookie"
-import Link from 'next/link'
+// import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Navbar, Word, ModalConfirm, SearchedWordsContainer, CookiesBanner } from '../components/'
 import { getAllWords } from '../services'
