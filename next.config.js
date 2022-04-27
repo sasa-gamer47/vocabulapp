@@ -11,6 +11,9 @@ const securityHeaders = [
 
 module.exports = withPWA({
   reactStrictMode: false,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   pwa: {
     dest: 'public',
     register: true,
